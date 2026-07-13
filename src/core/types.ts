@@ -356,8 +356,15 @@ export type ParsedCliInput =
   | DaemonServeCommandInput
   | SessionCommandInput;
 
+export interface ReloadContext {
+  cwd: string;
+  repoRoot?: string;
+  initialWatchSignature?: string;
+}
+
 export interface AppBootstrap {
   input: CliInput;
+  reloadContext: ReloadContext;
   changeset: Changeset;
   initialMode: LayoutMode;
   initialTheme?: string;
